@@ -7,6 +7,7 @@ import * as passport from 'passport';
 import * as session from 'express-session';
 import * as flash from 'express-flash';
 import * as methodOverride from 'method-override'; // Import de method-override
+import * as process  from "process";
 async function bootstrap() {
   // const app = await NestFactory.create(AppModule);
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
@@ -32,6 +33,6 @@ async function bootstrap() {
 
   // Démarrer l'application
   app.use(flash());
-  await app.listen(3000);
+  await app.listen(process.env.PORT, '0.0.0.0');
 }
 bootstrap();
