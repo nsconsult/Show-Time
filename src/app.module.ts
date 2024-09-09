@@ -10,7 +10,7 @@ import { ConcertsModule } from './concerts/concerts.module';
 @Module({
   imports: [
     MongooseModule.forRoot(
-      'mongodb+srv://Admin:Tetefelix0*@lix.aejbx.mongodb.net/show_time',
+      'mongodb+srv://Admin:Tetefelix0*@lix.aejbx.mongodb.net/show_time?retryWrites=true&appName=lix',
     ),
     UsersModule,
     AuthModule,
