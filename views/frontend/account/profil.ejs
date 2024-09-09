@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FestivalHub - Profil Utilisateur</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Staatliches&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap");
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body,
+html {
+	height: 100vh;
+	display: grid;
+	/* background: #d83565;
+	color: black;
+	font-size: 14px; 
+	letter-spacing: 0.1em; */
+}
+
+.ticket {
+	margin: auto;
+	display: flex;
+	background: white;
+	box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+
+.left {
+	display: flex;
+}
+
+.image {
+	height: auto;
+	width: auto;
+	background-image: url("https://c8.alamy.com/compfr/jxpa33/musique-live-concert-festival-de-l-affiche-banner-jxpa33.jpg");
+	background-size: cover;
+	opacity: 0.85;
+}
+
+.admit-one {
+	position: absolute;
+	color: darkgray;
+	height: 250px;
+	padding: 0 10px;
+	letter-spacing: 0.15em;
+	display: flex;
+	text-align: center;
+	justify-content: space-around;
+	writing-mode: vertical-rl;
+	transform: rotate(-180deg);
+}
+
+.admit-one span:nth-child(2) {
+	color: white;
+	font-weight: 700;
+}
+
+.left .ticket-number {
+	height: 250px;
+	width: 250px;
+	display: flex;
+	justify-content: flex-end;
+	align-items: flex-end;
+	padding: 5px;
+}
+
+.ticket-info {
+	padding: 10px 30px;
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.date {
+	border-top: 1px solid gray;
+	border-bottom: 1px solid gray;
+	padding: 5px 0;
+	font-weight: 700;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+}
+
+.date span {
+	width: 100px;
+}
+
+.date span:first-child {
+	text-align: left;
+}
+
+.date span:last-child {
+	text-align: right;
+}
+
+.date .june-29 {
+	color: #d83565;
+	font-size: 20px;
+}
+
+.show-name {
+	font-size: 32px;
+	font-family: "Nanum Pen Script", cursive;
+	color: #d83565;
+}
+
+.show-name h1 {
+	font-size: 48px;
+	font-weight: 700;
+	letter-spacing: 0.1em;
+	color: #4a437e;
+}
+
+.time {
+	padding: 10px 0;
+	color: #4a437e;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	font-weight: 700;
+}
+
+.time span {
+	font-weight: 400;
+	color: gray;
+}
+
+.left .time {
+	font-size: 16px;
+}
+
+
+.location {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	width: 100%;
+	padding-top: 8px;
+	border-top: 1px solid gray;
+}
+
+.location .separator {
+	font-size: 20px;
+}
+
+.right {
+	width: 180px;
+	border-left: 1px dashed #404040;
+}
+
+.right .admit-one {
+	color: darkgray;
+}
+
+.right .admit-one span:nth-child(2) {
+	color: gray;
+}
+
+.right .right-info-container {
+	height: 250px;
+	padding: 10px 10px 10px 35px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.right .show-name h1 {
+	font-size: 18px;
+}
+
+.barcode {
+	height: 100px;
+}
+
+.barcode img {
+	height: 100%;
+}
+
+.right .ticket-number {
+	color: gray;
+}
+
+    </style>
+</head>
+<body class="bg-gray-100">
+    <p class="text-center font-bold">Vous êtes connecté en tant que : <%= user.username%></p>
+    <nav class="bg-white shadow">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex flex-wrap justify-between items-center">
+            <a href="/" class="text-2xl font-bold text-blue-600">FestivalHub</a>
+            <div class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-4">
+                <a href="/" class="text-gray-800 hover:text-blue-600">Accueil</a>
+                <a href="/events" class="text-gray-800 hover:text-blue-600">Événements</a>
+                <a href="/about" class="text-gray-800 hover:text-blue-600">À Propos</a>
+                <a href="/contact" class="text-gray-800 hover:text-blue-600">Contact</a>
+                <a href="/profile" class="text-gray-800 hover:text-blue-600">Profil</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="bg-gradient-to-r from-blue-500 to-purple-600 text-white py-20">
+
+        <div class="max-w-6xl mx-auto text-center px-4">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4">Votre Profil</h1>
+            <p class="text-lg mb-8">Gérez vos informations personnelles et vos préférences.</p>
+        </div>
+    </header>
+
+    <section class="pt-10 pb-5">
+        <div class="max-w-6xl mx-auto px-4">
+            <p class="text-center font-bold text-xl py-6">Voulez-vous vous déconnecter? Cliquez <a href="/logout" class="hover:none text-blue-500">ici</a> </p>
+            <h2 class="text-3xl font-bold mb-6 text-center">Informations Personnelles</h2>
+            <form action="/profil/update" method="POST" class="bg-white p-8 rounded-lg shadow-lg">
+                <!-- <div class="mb-4">
+                    <label class="block text-gray-700 font-bold mb-2" for="username">Nom d'utilisateur</label>
+                    <input type="text" id="username" name="username" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Votre nom d'utilisateur" value="JeanDupont">
+                </div> -->
+                <div class="mb-4">
+                    <label class="block text-gray-700 font-bold mb-2" for="email">Email</label>
+                    <input type="email" id="email" name="email" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Votre adresse email" value="<%= user.email%>">
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 font-bold mb-2" for="password">Mot de passe</label>
+                    <input type="password" id="password" name="password" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Votre mot de passe">
+                    <p class="text-gray-600 text-xs italic mt-2">Laissez vide si vous ne souhaitez pas changer votre mot de passe.</p>
+                </div>
+                <!-- <div class="mb-4">
+                    <label class="block text-gray-700 font-bold mb-2" for="phone">Téléphone</label>
+                    <input type="tel" id="phone" name="phone" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Votre numéro de téléphone" value="+33 6 12 34 56 78">
+                </div> -->
+                <div class="flex items-center justify-between">
+                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+                        Enregistrer les modifications
+                    </button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <section class="py-2"></section>
+    <h2 class="text-3xl font-bold mb-6 text-center">Vos tickets et Réservations</h2>
+    <% reservations.forEach(ticket => { %>
+    <div class="ticket created-by-anniedotexe py-2">
+        <div class="left">
+            <div class="image">
+                <p class="admit-one">
+                    <span class="font-sm text-blue-600">FestivalHub</span>
+                    <span class="font-sm text-blue-600">FestivalHub</span>
+                </p>
+                <div class="ticket-number center">
+                    <p class="text-sm text-white text-center">
+                        <%= ticket._id%>
+                    </p>
+                </div>
+            </div>
+            <div class="ticket-info">
+                <p class="date">
+                    <span><%= ticket.date.toLocaleString('fr-FR', { weekday: "long" }).toUpperCase() %></span></span>
+                    <span class="june-29"><%= ticket.date.getDate()%> <%= ticket.date.toLocaleString('fr-FR', { month: "long" }).toUpperCase() %></span>
+                    <span><%= ticket.date.getFullYear() %></span>
+                </p>
+                <div class="show-name">
+                    <h2 class="text-4xl py-2"><%= ticket.name%></h2>
+                    <h2 class="text-2xl py-2"><%= ticket.description%></h2>
+                </div>
+                <div class="time">
+                    <p><%= ticket.date.toLocaleTimeString('fr-FR', { timeZone: 'UTC' }) %><span> A </span><%= ticket.date.toLocaleTimeString('fr-FR', { timeZone: 'Etc/GMT+10' }) %></p>
+                    <p>PORTES <span>@</span> <%= ticket.date.toLocaleTimeString('fr-FR', { timeZone: 'Etc/GMT-2' }) %></p>
+                </div>
+                <p class="location"><span><%= ticket.location%></span>
+                    <span class="separator"><i class="far fa-smile"></i></span><span><%= ticket.location%></span>
+                </p>
+            </div>
+        </div>
+        <div class="right">
+            <p class="admit-one">
+                <span class="font-sm text-blue-600">FestivalHub</span>
+                <span class="font-sm text-blue-600">FestivalHub</span>
+            </p>
+            <div class="right-info-container">
+                <div class="show-name">
+                    <h1>SOUR Prom</h1>
+                </div>
+                <div class="time">
+                    <p><span>DE </span> <%= ticket.date.toLocaleTimeString('fr-FR', { timeZone: 'UTC' }) %> <span>A</span> <%= ticket.date.toLocaleTimeString('fr-FR', { timeZone: 'Etc/GMT+10' }) %></p>
+                    <p>PORTES <span>@</span> <%= ticket.date.toLocaleTimeString('fr-FR', { timeZone: 'Etc/GMT-2' }) %></p>
+                </div>
+                <div class="barcode">
+                    <img src="https://external-preview.redd.it/cg8k976AV52mDvDb5jDVJABPrSZ3tpi1aXhPjgcDTbw.png?auto=webp&s=1c205ba303c1fa0370b813ea83b9e1bddb7215eb" alt="QR code">
+                </div>
+                <!-- <p class="ticket-number text-sm text-blue-600">
+                   #<%= ticket._id%>
+                </p> -->
+            </div>
+        </div>
+    </div>
+        </div>
+        <% }) %>
+    </section>
+
+    <footer class="bg-gray-800 text-white py-6">
+        <div class="max-w-6xl mx-auto text-center">
+            <p>&copy; 2023 FestivalHub. Tous droits réservés.</p>
+            <div class="mt-4">
+                <a href="#" class="text-gray-300 px-2">Politique de Confidentialité</a>
+                <a href="#" class="text-gray-300 px-2">Conditions d'Utilisation</a>
+            </div>
+            <div class="mt-4">
+                <a href="#"><i class="fab fa-facebook-square text-gray-300 mx-2"></i></a>
+                <a href="#"><i class="fab fa-twitter-square text-gray-300 mx-2"></i></a>
+                <a href="#"><i class="fab fa-instagram-square text-gray-300 mx-2"></i></a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

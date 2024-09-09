@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <title>Register</title>
+</head>
+<body>
+    <div class="flex flex-col justify-center font-[sans-serif] sm:h-screen p-4">
+        <div class="max-w-md w-full mx-auto border border-gray-300 rounded-2xl p-8">
+          <div class="text-center mb-12">
+            <a href="javascript:void(0)"><img
+              src="/images/Festival_Hub.jpeg" alt="logo" class='w-auto h-80 inline-block' />
+            </a>
+          </div>
+          
+          <form method="POST">
+            <div class="space-y-6">
+              <div class="text-center text-red-400">
+                <% if (message) { %>
+                  <p><%-message%></p>
+                <% } %>
+              </div>
+              
+              <div>
+                <label class="text-gray-800 text-sm mb-2 block">Enter your Email</label>
+                <input name="email" type="text" class="text-gray-800 bg-white border border-gray-300 w-full text-sm px-4 py-3 rounded-md outline-blue-500" placeholder="Enter a new Email" />
+              </div>
+              <div>
+                <label class="text-gray-800 text-sm mb-2 block">Enter a new Username</label>
+                <input name="username" type="text"  class="text-gray-800 bg-white border border-gray-300 w-full text-sm px-4 py-3 rounded-md outline-blue-500" placeholder="Enter a new Username" />
+              </div>
+              <div>
+                <label class="text-gray-800 text-sm mb-2 block">Enter a new Password</label>
+                <input name="password" type="password" class="text-gray-800 bg-white border border-gray-300 w-full text-sm px-4 py-3 rounded-md outline-blue-500 pass-key" placeholder="Enter a new Password" />
+                <span class="show">SHOW</span>
+              </div>
+  
+              <div class="flex items-center">
+                <input name="checkBox" type="checkbox" class="h-4 w-4 shrink-0 text-blue-600 focus:ring-blue-500 border-gray-300 rounded" required />
+                <label for="remember-me" class="text-gray-800 ml-3 block text-sm">
+                  I accept the <a href="javascript:void(0);" class="text-blue-600 font-semibold hover:underline ml-1">Terms and Conditions</a>
+                </label>
+              </div>
+            </div>
+  
+            <div class="!mt-12">
+              <button type="submit" class="w-full py-3 px-4 text-sm tracking-wider font-semibold rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none">
+                Create an account
+              </button>
+            </div>
+            <p class="text-gray-800 text-sm mt-6 text-center">Already have an account? <a href="login" class="text-blue-600 font-semibold hover:underline ml-1">Login here</a></p>
+          </form>
+        </div>
+      </div>
+      <script>
+              const pass_field = document.querySelector('.pass-key');
+      const showBtn = document.querySelector('.show');
+      showBtn.addEventListener('click', function () {
+          if (pass_field.type === "password") {
+              pass_field.type = "text";
+              showBtn.textContent = "HIDE";
+              showBtn.style.color = "#3498db";
+          } else {
+              pass_field.type = "password";
+              showBtn.textContent = "SHOW";
+              showBtn.style.color = "#222";
+          }
+      });
+      </script>
+      <script src="https://cdn.tailwindcss.com"></script>
+</body>
+</html>

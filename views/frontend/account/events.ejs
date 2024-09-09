@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FestivalHub - Explorer les Événements</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <style>
+        .event-card {
+            transition: transform 0.2s;
+        }
+        .event-card:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <nav class="bg-white shadow">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex flex-wrap justify-between items-center">
+            <a href="/" class="text-2xl font-bold text-blue-600">FestivalHub</a>
+            <div class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-4">
+                <a href="/" class="text-gray-800 hover:text-blue-600">Accueil</a>
+                <a href="/events" class="text-gray-800 hover:text-blue-600">Événements</a>
+                <a href="/about" class="text-gray-800 hover:text-blue-600">À Propos</a>
+                <a href="/contact" class="text-gray-800 hover:text-blue-600">Contact</a>
+                <a href="/profile" class="text-gray-800 hover:text-blue-600">Profil</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="bg-gradient-to-r from-blue-500 to-purple-600 text-white py-20">
+        <div class="max-w-6xl mx-auto text-center px-4">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4">Explorez Tous les Événements</h1>
+            <p class="text-lg mb-8">Trouvez des événements qui vous intéressent et achetez vos tickets dès maintenant !</p>
+        </div>
+    </header>
+
+    <section class="py-16">
+        <div class="max-w-6xl mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-8 text-center">Tous les Événements</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <% concerts.forEach(concert => { %>
+                <div class="event-card bg-white p-6 rounded-lg shadow-lg maw-w-32">
+                    <img src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/concert-banner-cover-design-template-4427093a68ade323d37df673a16fb9dd_screen.jpg?ts=1673101183" alt="Festival de Musique" class="rounded-md w-auto object-cover">
+                    <h3 class="text-xl font-bold mb-2 mt-4"><%= concert.name %></h3>
+                    <p class="text-gray-600 mb-4"><span><%= concert.date.toLocaleString('en-GB', { timeZone: 'UTC' }) %></span>- <span><%= concert.location %></span></p>
+                    <a href="/concerts/<%= concert._id %>" class="text-blue-600 font-semibold">Acheter des Tickets</a>
+                </div>
+                <% }); %>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-800 text-white py-6">
+        <div class="max-w-6xl mx-auto text-center">
+            <p>&copy; 2023 FestivalHub. Tous droits réservés.</p>
+            <div class="mt-4">
+                <a href="#" class="text-gray-300 px-2">Politique de Confidentialité</a>
+                <a href="#" class="text-gray-300 px-2">Conditions d'Utilisation</a>
+            </div>
+            <div class="mt-4">
+                <a href="#"><i class="fab fa-facebook-square text-gray-300 mx-2"></i></a>
+                <a href="#"><i class="fab fa-twitter-square text-gray-300 mx-2"></i></a>
+                <a href="#"><i class="fab fa-instagram-square text-gray-300 mx-2"></i></a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

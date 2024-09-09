@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FestivalHub - Contact</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+</head>
+<body class="bg-gray-100">
+    <nav class="bg-white shadow">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex flex-wrap justify-between items-center">
+            <a href="/" class="text-2xl font-bold text-blue-600">FestivalHub</a>
+            <div class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-4">
+                <a href="/" class="text-gray-800 hover:text-blue-600">Accueil</a>
+                <a href="/events" class="text-gray-800 hover:text-blue-600">Événements</a>
+                <a href="/about" class="text-gray-800 hover:text-blue-600">À Propos</a>
+                <a href="/contact" class="text-gray-800 hover:text-blue-600">Contact</a>
+                <a href="/profile" class="text-gray-800 hover:text-blue-600">Profil</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="bg-gradient-to-r from-blue-500 to-purple-600 text-white py-20">
+        <div class="max-w-6xl mx-auto text-center px-4">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4">Contactez-Nous</h1>
+            <p class="text-lg mb-8">Nous sommes là pour vous aider ! N'hésitez pas à nous contacter pour toute question.</p>
+        </div>
+    </header>
+
+    <section class="py-16">
+        <div class="max-w-6xl mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-6 text-center">Formulaire de Contact</h2>
+            <form action="#" method="POST" class="bg-white p-8 rounded-lg shadow-lg">
+                <div class="mb-4">
+                    <label class="block text-gray-700 font-bold mb-2" for="name">Nom</label>
+                    <input type="text" id="name" name="name" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Votre nom">
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 font-bold mb-2" for="email">Email</label>
+                    <input type="email" id="email" name="email" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Votre adresse email">
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 font-bold mb-2" for="message">Message</label>
+                    <textarea id="message" name="message" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Votre message" rows="4"></textarea>
+                </div>
+                <div class="flex items-center justify-between">
+                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+                        Envoyer
+                    </button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <footer class="bg-gray-800 text-white py-6">
+        <div class="max-w-6xl mx-auto text-center">
+            <p>&copy; 2023 FestivalHub. Tous droits réservés.</p>
+            <div class="mt-4">
+                <a href="#" class="text-gray-300 px-2">Politique de Confidentialité</a>
+                <a href="#" class="text-gray-300 px-2">Conditions d'Utilisation</a>
+            </div>
+            <div class="mt-4">
+                <a href="#"><i class="fab fa-facebook-square text-gray-300 mx-2"></i></a>
+                <a href="#"><i class="fab fa-twitter-square text-gray-300 mx-2"></i></a>
+                <a href="#"><i class="fab fa-instagram-square text-gray-300 mx-2"></i></a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FestivalHub - Votre plateforme de vente de tickets</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <style>
+        /* Quelques styles personnalisés */
+        .event-card {
+            transition: transform 0.2s;
+        }
+        .event-card:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <script>let isLoggedIn = false; </script>
+    <% if (user) { %>
+        <script>isLoggedIn = true; </script>
+        <!-- <p>Nom d'utilisateur : <%= user.email %></p>
+        <p>ID de session : <%= userId %></p> -->
+    <% } else { %>
+        <script>isLoggedIn = false; </script>
+        <p class="text-center font-bold">Vous n'êtes pas connecté. Cliquez <a href="/login" class="hover:none text-blue-500">ici</a> pour vous connecter</p>
+        <script>console.log(isLoggedIn); </script>
+    <% } %>
+    <!-- Barre de Navigation -->
+    <nav class="bg-white shadow">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex flex-wrap justify-between items-center">
+            <a href="/" class="text-2xl font-bold text-blue-600">FestivalHub</a>
+            <div class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-4">
+                <a href="/" class="text-gray-800 hover:text-blue-600">Accueil</a>
+                <a href="/events" class="text-gray-800 hover:text-blue-600">Événements</a>
+                <a href="/about" class="text-gray-800 hover:text-blue-600">À Propos</a>
+                <a href="/contact" class="text-gray-800 hover:text-blue-600">Contact</a>
+                <ul class="flex space-x-4">
+                    <li id="login-link"><a href="/login" class="hover:underline" id="loginText">Se connecter</a></li>
+                    <li id="profile-link" style="display:none;"><a href="/profile" class="hover:underline">Profil</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="bg-gradient-to-r from-blue-500 to-purple-600 text-white py-20">
+        <div class="max-w-6xl mx-auto text-center px-4">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4">Découvrez les Meilleurs Concerts et Festivals</h1>
+            <p class="text-lg mb-8">Achetez vos tickets en quelques clics et vivez des expériences inoubliables.</p>
+            <form class="mb-8">
+                <input type="text" placeholder="Rechercher un événement..." class="rounded-l-lg p-2 w-64 md:w-1/3">
+                <button class="bg-white text-blue-600 font-semibold rounded-r-lg p-2">Chercher</button>
+            </form>
+            <a href="/events" class="bg-white text-blue-600 font-semibold py-3 px-8 rounded-full hover:bg-gray-300 transition">Explorer les Événements</a>
+        </div>
+    </header>
+
+    <!-- Section des Événements à Venir -->
+    <section class="py-16">
+        <div class="max-w-6xl mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-8">Événements à Venir</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <% let count = 0; %>
+                <% concerts.forEach(concert => { %>
+                    <% if (count < 3) { %>
+                        <div class="event-card bg-white p-6 rounded-lg shadow-lg">
+                            <img src="https://img.freepik.com/photos-gratuite/vue-arriere-foule-fans-regardant-performances-direct-concert-musique-nuit-espace-copie_637285-544.jpg?size=626&ext=jpg&ga=GA1.1.2008272138.1725494400&semt=ais_hybrid" alt="Festival de Musique" class="rounded-md w-300 h-150">
+                            <h3 class="text-xl font-bold mb-2 mt-4"><%= concert.name %></h3></span>- 
+                            <p class="text-gray-600 mb-4"><span><%= concert.date.toLocaleString('en-GB', { timeZone: 'UTC' }) %> à <span><%= concert.location %></span></p>
+                            <a href="/concerts/<%= concert._id %>" class="text-blue-600 font-semibold">Acheter des Tickets</a>
+                        </div>
+                <% count++; %>
+            <% } %>
+                <% }); %>
+            </div>
+        </div>
+    </section>
+
+    <!-- Témoignages Section -->
+    <section class="bg-gray-200 py-16">
+        <div class="max-w-6xl mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-8">Ce que disent nos utilisateurs</h2>
+            <div class="flex flex-col space-y-4 md:flex-row md:space-y-0 md:space-x-4 md:justify-center">
+                <div class="bg-white p-6 rounded-lg shadow-lg flex-1">
+                    <p class="text-gray-700 italic">"Une expérience incroyable ! J'ai trouvé tous mes concerts préférés ici !"</p>
+                    <span class="block mt-4 font-bold">Marie L.</span>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-lg flex-1">
+                    <p class="text-gray-700 italic">"Super facile d'acheter des tickets. Je reviendrai sans hésiter !"</p>
+                    <span class="block mt-4 font-bold">Paul D.</span>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-lg flex-1">
+                    <p class="text-gray-700 italic">"Une vaste sélection d'événements et un excellent service client !"</p>
+                    <span class="block mt-4 font-bold">Sophie T.</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-6">
+        <div class="max-w-6xl mx-auto text-center">
+            <p>&copy; 2023 FestivalHub. Tous droits réservés.</p>
+            <div class="mt-4">
+                <a href="#" class="text-gray-300 px-2">Politique de Confidentialité</a>
+                <a href="#" class="text-gray-300 px-2">Conditions d'Utilisation</a>
+            </div>
+            <div class="mt-4">
+                <a href="#"><i class="fab fa-facebook-square text-gray-300 mx-2"></i></a>
+                <a href="#"><i class="fab fa-twitter-square text-gray-300 mx-2"></i></a>
+                <a href="#"><i class="fab fa-instagram-square text-gray-300 mx-2"></i></a>
+            </div>
+        </div>
+        <script>
+            // Simuler l'état de connexion
+            // let isLogged = isLoggedIn; // Changez cette valeur à true pour simuler un utilisateur connecté
+            
+            function updateNavigation() {
+                const loginLink = document.getElementById("login-link");
+                const profileLink = document.getElementById("profile-link");
+                const loginText = document.getElementById("loginText");
+                console.log(isLoggedIn);
+                if (isLoggedIn) {
+                    loginLink.style.display = "none"; // Masquer la connexion
+                    profileLink.style.display = "block"; // Afficher le profil
+                    loginText.innerText = "Profil"; // Modifier le texte
+                } else {
+                    loginLink.style.display = "block"; // Afficher le lien de connexion
+                    profileLink.style.display = "none"; // Masquer le profil
+                    loginText.innerText = "Se connecter"; // Réinitialiser le texte
+                }
+            }
+        
+            // Appel initial pour mettre à jour la navigation
+            updateNavigation();
+        </script>
+    </footer>
+</body>
+</html>

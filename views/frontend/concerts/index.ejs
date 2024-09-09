@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Concerts</title>
+</head>
+<body>
+    <h1>Concerts</h1>
+    <a href="/concerts/create">Create New Concert</a>
+    <ul>
+        <% concerts.forEach(concert => { %>
+            <li>
+                <a href="/concerts/<%= concert._id %>">Titre: <span><%= concert.name %></span></a>
+                <a href="/concerts/edit/<%= concert._id %>">Edit</a>
+                <form action="/concerts/<%= concert._id %>" method="POST" style="display:inline;">
+                    <input type="hidden" name="_method" value="DELETE">
+                    <button type="submit">Delete</button>
+                </form>
+            </li>
+        <% }); %>
+    </ul>
+</body>
+</html>
